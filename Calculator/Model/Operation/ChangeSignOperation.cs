@@ -1,13 +1,14 @@
-﻿using System;
-using Calculator.Model.Entity;
+﻿using Calculator.Model.Entity;
 
 namespace Calculator.Model.Operation
 {
-    class ChangingSignOperation : OneArgumentOperation
+    class ChangeSignOperation : OneArgumentOperation
     {
-        public ChangingSignOperation(Number number) : base(number)
+        public ChangeSignOperation(Number number) : base(number)
         {
         }
+
+        public override string OperationSign { get; } = Properties.Resources.PlusMinusSign;
 
         public override Number Execute()
         {

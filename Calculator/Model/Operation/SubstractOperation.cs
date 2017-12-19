@@ -1,13 +1,14 @@
-﻿using System;
-using Calculator.Model.Entity;
+﻿using Calculator.Model.Entity;
 
 namespace Calculator.Model.Operation
 {
-    class SubstractionOperation : TwoArgumentOperation
+    class SubstractOperation : TwoArgumentOperation
     {
-        public SubstractionOperation(Number firstNumber) : base(firstNumber) { }
+        public SubstractOperation(Number firstNumber) : base(firstNumber) { }
 
-        public SubstractionOperation(Number firstNumber, Number secondNumber) : base(firstNumber, secondNumber) { }
+        public SubstractOperation(Number firstNumber, Number secondNumber) : base(firstNumber, secondNumber) { }
+
+        public override string OperationSign { get; } = Properties.Resources.MinusSign;
 
         public override Number Execute()
         {

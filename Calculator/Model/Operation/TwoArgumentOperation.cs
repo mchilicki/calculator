@@ -2,10 +2,10 @@
 
 namespace Calculator.Model.Operation
 {
-    public abstract class TwoArgumentOperation : Operation
+    public abstract class TwoArgumentOperation : BaseOperation
     {
-        protected Number _firstNumber;
-        protected Number _secondNumber;
+        public Number _firstNumber;
+        public Number _secondNumber;
 
         public TwoArgumentOperation(Number firstNumber)
         {

@@ -3,11 +3,13 @@ using Calculator.Model.Entity;
 
 namespace Calculator.Model.Operation
 {
-    class DivisionOperation : TwoArgumentOperation
+    class DivideOperation : TwoArgumentOperation
     {
-        public DivisionOperation(Number firstNumber) : base(firstNumber) { }
+        public DivideOperation(Number firstNumber) : base(firstNumber) { }
 
-        public DivisionOperation(Number firstNumber, Number secondNumber) : base(firstNumber, secondNumber) { }
+        public DivideOperation(Number firstNumber, Number secondNumber) : base(firstNumber, secondNumber) { }
+
+        public override string OperationSign { get; } = Properties.Resources.DivisionSign;
 
         public override Number Execute()
         {

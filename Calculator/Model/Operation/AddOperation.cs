@@ -1,13 +1,14 @@
-﻿using System;
-using Calculator.Model.Entity;
+﻿using Calculator.Model.Entity;
 
 namespace Calculator.Model.Operation
 {
-    class AdditionOperation : TwoArgumentOperation
+    class AddOperation : TwoArgumentOperation
     {
-        public AdditionOperation(Number firstNumber) : base(firstNumber) { }
+        public AddOperation(Number firstNumber) : base(firstNumber) { }
 
-        public AdditionOperation(Number firstNumber, Number secondNumber) : base(firstNumber, secondNumber) { }
+        public AddOperation(Number firstNumber, Number secondNumber) : base(firstNumber, secondNumber) { }
+
+        public override string OperationSign { get; } = Properties.Resources.PlusSign;
 
         public override Number Execute()
         {

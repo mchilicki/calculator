@@ -5,18 +5,18 @@ namespace Calculator.Model.Operation
 {
     public static class TwoParameterOperationFactory
     {
-        public static Operation Create(OperationType operationType, Number firstNumber, Number secondNumber)
+        public static BaseOperation Create(OperationType operationType, Number firstNumber, Number secondNumber)
         {
             switch (operationType)
             {
                 case OperationType.Addition:
-                    return new AdditionOperation(firstNumber, secondNumber);
+                    return new AddOperation(firstNumber, secondNumber);
                 case OperationType.Substraction:
-                    return new SubstractionOperation(firstNumber, secondNumber);
+                    return new SubstractOperation(firstNumber, secondNumber);
                 case OperationType.Multiplication:
-                    return new MultiplicationOperation(firstNumber, secondNumber);
+                    return new MultiplyOperation(firstNumber, secondNumber);
                 case OperationType.Division:
-                    return new DivisionOperation(firstNumber, secondNumber);
+                    return new DivideOperation(firstNumber, secondNumber);
                 default:
                     return new NullOperation();
             }

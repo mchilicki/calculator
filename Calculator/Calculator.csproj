@@ -88,21 +88,20 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Enum\OperationType.cs" />
-    <Compile Include="Model\CalculatorManager.cs" />
-    <Compile Include="Model\Entity\FloatingPointNumber.cs" />
+    <Compile Include="Model\CalculationManager.cs" />
     <Compile Include="Model\Entity\NullNumber.cs" />
     <Compile Include="Model\Entity\Number.cs" />
-    <Compile Include="Model\Operation\AdditionOperation.cs" />
-    <Compile Include="Model\Operation\ChangingSignOperation.cs" />
-    <Compile Include="Model\Operation\DivisionOperation.cs" />
-    <Compile Include="Model\Operation\MultiplicationOperation.cs" />
+    <Compile Include="Model\Operation\AddOperation.cs" />
+    <Compile Include="Model\Operation\ChangeSignOperation.cs" />
+    <Compile Include="Model\Operation\DivideOperation.cs" />
+    <Compile Include="Model\Operation\MultiplyOperation.cs" />
     <Compile Include="Model\Operation\NullOperation.cs" />
     <Compile Include="Model\Operation\OneArgumentOperation.cs" />
-    <Compile Include="Model\Operation\Operation.cs" />
+    <Compile Include="Model\Operation\BaseOperation.cs" />
     <Compile Include="Model\Operation\OneParameterOperationFactory.cs" />
     <Compile Include="Model\Operation\SquareExpomentOperation.cs" />
     <Compile Include="Model\Operation\SquareRootOperation.cs" />
-    <Compile Include="Model\Operation\SubstractionOperation.cs" />
+    <Compile Include="Model\Operation\SubstractOperation.cs" />
     <Compile Include="Model\Operation\TwoArgumentOperation.cs" />
     <Compile Include="Model\Operation\TwoParameterOperationFactory.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />

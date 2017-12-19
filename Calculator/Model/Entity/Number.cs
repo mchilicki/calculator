@@ -8,6 +8,8 @@ namespace Calculator.Model.Entity
 
         public static Number EmptyNumber = new NullNumber();
 
+        protected Number() { }
+
         public Number(double value)
         {
             Value = value;

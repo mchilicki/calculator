@@ -164,8 +164,10 @@
             Grid.Column="0"
             Command="{Binding ClearCommand}"/>
         <TextBox 
-            Style="{StaticResource OperationBox}"/>
+            Style="{StaticResource OperationBox}"
+            Text="{Binding Calculations, Mode=TwoWay}"/>
         <TextBox 
-            Style="{StaticResource ResultBox}"/>
+            Style="{StaticResource ResultBox}"
+            Text="{Binding Result, Mode=TwoWay}"/>
     </Grid>
 </Window>
