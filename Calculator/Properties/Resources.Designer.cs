@@ -133,6 +133,105 @@ namespace Calculator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 0.
+        /// </summary>
+        public static string Number0 {
+            get {
+                return ResourceManager.GetString("Number0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.
+        /// </summary>
+        public static string Number1 {
+            get {
+                return ResourceManager.GetString("Number1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2.
+        /// </summary>
+        public static string Number2 {
+            get {
+                return ResourceManager.GetString("Number2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3.
+        /// </summary>
+        public static string Number3 {
+            get {
+                return ResourceManager.GetString("Number3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4.
+        /// </summary>
+        public static string Number4 {
+            get {
+                return ResourceManager.GetString("Number4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5.
+        /// </summary>
+        public static string Number5 {
+            get {
+                return ResourceManager.GetString("Number5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6.
+        /// </summary>
+        public static string Number6 {
+            get {
+                return ResourceManager.GetString("Number6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 7.
+        /// </summary>
+        public static string Number7 {
+            get {
+                return ResourceManager.GetString("Number7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 8.
+        /// </summary>
+        public static string Number8 {
+            get {
+                return ResourceManager.GetString("Number8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 9.
+        /// </summary>
+        public static string Number9 {
+            get {
+                return ResourceManager.GetString("Number9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ±.
+        /// </summary>
+        public static string PlusMinusSign {
+            get {
+                return ResourceManager.GetString("PlusMinusSign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to +.
         /// </summary>
         public static string PlusSign {
@@ -156,15 +255,6 @@ namespace Calculator.Properties {
         public static string RootSign {
             get {
                 return ResourceManager.GetString("RootSign", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 0.
-        /// </summary>
-        public static string ZeroSign {
-            get {
-                return ResourceManager.GetString("ZeroSign", resourceCulture);
             }
         }
     }

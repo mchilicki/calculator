@@ -23,37 +23,149 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Button Content="7" Style="{StaticResource NumericButton}" 
-                Grid.Row="3" Grid.Column="0" />
-        <Button Content="4" Style="{StaticResource NumericButton}" 
-                Grid.Row="4" Grid.Column="0" />
-        <Button Content="1" Style="{StaticResource NumericButton}" 
-                Grid.Row="5" Grid.Column="0"/>
-        <Button Content="0" Style="{StaticResource NumericButton}" 
-                Grid.Row="6" Grid.ColumnSpan="2" Grid.Column="0" />
-        <Button Content="8" Style="{StaticResource NumericButton}" 
-                Grid.Row="3" Grid.Column="1"/>
-        <Button Content="5" Style="{StaticResource NumericButton}" 
-                Grid.Row="4" Grid.Column="1"/>
-        <Button Content="2" Style="{StaticResource NumericButton}" 
-                Grid.Row="5" Grid.Column="1"/>
-        <Button Content="9" Style="{StaticResource NumericButton}" 
-                Grid.Row="3" Grid.Column="2"/>
-        <Button Content="6" Style="{StaticResource NumericButton}" 
-                Grid.Row="4" Grid.Column="2"/>
-        <Button Content="3" Style="{StaticResource NumericButton}" 
-                Grid.Row="5" Grid.Column="2"/>
-        <Button Content="{x:Static properties:Resources.Dot}" Style="{StaticResource NumericButton}" Grid.Row="6" Grid.Column="2" />
+        <Button 
+            Content="{x:Static properties:Resources.Number7}" 
+            Style="{StaticResource NumericButton}" 
+            Grid.Row="3" 
+            Grid.Column="0" 
+            Command="{Binding NumericCommand}" 
+            CommandParameter="{x:Static properties:Resources.Number7}"/>
+        <Button 
+            Content="{x:Static properties:Resources.Number4}" 
+            Style="{StaticResource NumericButton}"                 
+            Grid.Row="4" 
+            Grid.Column="0" 
+            Command="{Binding NumericCommand}"
+            CommandParameter="{x:Static properties:Resources.Number4}"/>
+        <Button 
+            Content="{x:Static properties:Resources.Number1}" 
+            Style="{StaticResource NumericButton}" 
+            Grid.Row="5"
+            Grid.Column="0" 
+            Command="{Binding NumericCommand}"
+            CommandParameter="{x:Static properties:Resources.Number1}"/>
+        <Button 
+            Content="{x:Static properties:Resources.Number0}" 
+            Style="{StaticResource NumericButton}" 
+            Grid.Row="6" 
+            Grid.Column="1" 
+            Command="{Binding NumericCommand}" 
+            CommandParameter="{x:Static properties:Resources.Number0}"/>
+        <Button 
+            Content="{x:Static properties:Resources.Number8}" 
+            Style="{StaticResource NumericButton}" 
+            Grid.Row="3" 
+            Grid.Column="1"
+            Command="{Binding NumericCommand}"
+            CommandParameter="{x:Static properties:Resources.Number8}"/>
+        <Button 
+            Content="{x:Static properties:Resources.Number5}" 
+            Style="{StaticResource NumericButton}" 
+            Grid.Row="4"
+            Grid.Column="1" 
+            Command="{Binding NumericCommand}"
+            CommandParameter="{x:Static properties:Resources.Number5}"/>
+        <Button 
+            Content="{x:Static properties:Resources.Number2}" 
+            Style="{StaticResource NumericButton}" 
+            Grid.Row="5" 
+            Grid.Column="1" 
+            Command="{Binding NumericCommand}"
+            CommandParameter="{x:Static properties:Resources.Number2}"/>
+        <Button 
+            Content="{x:Static properties:Resources.Number9}" 
+            Style="{StaticResource NumericButton}" 
+            Grid.Row="3" 
+            Grid.Column="2"
+            Command="{Binding NumericCommand}"
+            CommandParameter="{x:Static properties:Resources.Number9}"/>
+        <Button 
+            Content="{x:Static properties:Resources.Number6}" 
+            Style="{StaticResource NumericButton}" 
+            Grid.Row="4" 
+            Grid.Column="2" 
+            Command="{Binding NumericCommand}"
+            CommandParameter="{x:Static properties:Resources.Number6}"/>
+        <Button 
+            Content="{x:Static properties:Resources.Number3}"
+            Style="{StaticResource NumericButton}" 
+            Grid.Row="5"
+            Grid.Column="2" 
+            Command="{Binding NumericCommand}"
+            CommandParameter="{x:Static properties:Resources.Number3}"/>
 
-        <Button Content="{x:Static properties:Resources.ExponentSign}" Style="{StaticResource OperationButton}" Grid.Row="2" Grid.Column="1"/>
-        <Button Content="{x:Static properties:Resources.RootSign}" Style="{StaticResource OperationButton}" Grid.Row="2" Grid.Column="2"/>
-        <Button Content="{x:Static properties:Resources.EqualSign}" Style="{StaticResource OperationButton}" Grid.Row="6" Grid.Column="3"/>
-        <Button Content="{x:Static properties:Resources.DivisionSign}" Style="{StaticResource OperationButton}" Grid.Row="2" Grid.Column="3"/>
-        <Button Content="{x:Static properties:Resources.MultiplicationSign}" Style="{StaticResource OperationButton}" Grid.Row="3" Grid.Column="3"/>
-        <Button Content="{x:Static properties:Resources.MinusSign}" Style="{StaticResource OperationButton}" Grid.Row="4" Grid.Column="3"/>
-        <Button Content="{x:Static properties:Resources.PlusSign}" Style="{StaticResource OperationButton}" Grid.Row="5" Grid.Column="3"/>
-        <Button Content="{x:Static properties:Resources.ClearAllSign}" Style="{StaticResource OperationButton}" Grid.Row="2" Grid.Column="0"/>
-        <TextBox Style="{StaticResource OperationBox}"/>
-        <TextBox Style="{StaticResource ResultBox}"/>
+        <Button 
+            Content="{x:Static properties:Resources.PlusMinusSign}" 
+            Style="{StaticResource OperationButton}" 
+            Grid.Row="6" 
+            Grid.Column="0" 
+            Command="{Binding OperationCommand}" 
+            CommandParameter="{x:Static properties:Resources.PlusMinusSign}"/>
+        <Button 
+            Content="{x:Static properties:Resources.Dot}"       
+            Style="{StaticResource NumericButton}"
+            Grid.Row="6" 
+            Grid.Column="2" 
+            Command="{Binding OperationCommand}"
+            CommandParameter="{x:Static properties:Resources.Dot}"/>
+        <Button 
+            Content="{x:Static properties:Resources.ExponentSign}" 
+            Style="{StaticResource OperationButton}" 
+            Grid.Row="2" 
+            Grid.Column="1"
+            Command="{Binding OperationCommand}"
+            CommandParameter="{x:Static properties:Resources.ExponentSign}"/>
+        <Button 
+            Content="{x:Static properties:Resources.RootSign}"
+            Style="{StaticResource OperationButton}" 
+            Grid.Row="2" 
+            Grid.Column="2"
+            Command="{Binding OperationCommand}"
+            CommandParameter="{x:Static properties:Resources.RootSign}"/>
+        <Button 
+            Content="{x:Static properties:Resources.EqualSign}" 
+            Style="{StaticResource OperationButton}" 
+            Grid.Row="6"
+            Grid.Column="3"
+            Command="{Binding OperationCommand}"
+            CommandParameter="{x:Static properties:Resources.EqualSign}"/>
+        <Button 
+            Content="{x:Static properties:Resources.DivisionSign}" 
+            Style="{StaticResource OperationButton}" 
+            Grid.Row="2" 
+            Grid.Column="3"
+            Command="{Binding OperationCommand}"
+            CommandParameter="{x:Static properties:Resources.DivisionSign}"/>
+        <Button 
+            Content="{x:Static properties:Resources.MultiplicationSign}"
+            Style="{StaticResource OperationButton}" 
+            Grid.Row="3" 
+            Grid.Column="3"
+            Command="{Binding OperationCommand}"
+            CommandParameter="{x:Static properties:Resources.MultiplicationSign}"/>
+        <Button 
+            Content="{x:Static properties:Resources.MinusSign}" 
+            Style="{StaticResource OperationButton}"
+            Grid.Row="4" 
+            Grid.Column="3"
+            Command="{Binding OperationCommand}"
+            CommandParameter="{x:Static properties:Resources.MinusSign}"/>
+        <Button 
+            Content="{x:Static properties:Resources.PlusSign}" 
+            Style="{StaticResource OperationButton}"
+            Grid.Row="5" 
+            Grid.Column="3"
+            Command="{Binding OperationCommand}"
+            CommandParameter="{x:Static properties:Resources.PlusSign}"/>
+        <Button 
+            Content="{x:Static properties:Resources.ClearAllSign}" 
+            Style="{StaticResource OperationButton}" 
+            Grid.Row="2" 
+            Grid.Column="0"
+            Command="{Binding ClearCommand}"/>
+        <TextBox 
+            Style="{StaticResource OperationBox}"/>
+        <TextBox 
+            Style="{StaticResource ResultBox}"/>
     </Grid>
 </Window>
