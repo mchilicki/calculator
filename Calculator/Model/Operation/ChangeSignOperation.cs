@@ -12,7 +12,7 @@ namespace Calculator.Model.Operation
 
         public override Number Execute()
         {
-            return _number.ChangeSign();
+            return Number.ChangeSign();
         }
     }
 }

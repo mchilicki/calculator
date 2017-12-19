@@ -113,8 +113,7 @@
             Style="{StaticResource OperationButton}" 
             Grid.Row="2" 
             Grid.Column="1"
-            Command="{Binding OperationCommand}"
-            CommandParameter="{x:Static properties:Resources.ExponentSign}"/>
+            Command="{Binding DotCommand}"/>
         <Button 
             Content="{x:Static properties:Resources.RootSign}"
             Style="{StaticResource OperationButton}" 
@@ -127,8 +126,7 @@
             Style="{StaticResource OperationButton}" 
             Grid.Row="6"
             Grid.Column="3"
-            Command="{Binding OperationCommand}"
-            CommandParameter="{x:Static properties:Resources.EqualSign}"/>
+            Command="{Binding ExecuteCommand}"/>
         <Button 
             Content="{x:Static properties:Resources.DivisionSign}" 
             Style="{StaticResource OperationButton}" 
@@ -165,9 +163,9 @@
             Command="{Binding ClearCommand}"/>
         <TextBox 
             Style="{StaticResource OperationBox}"
-            Text="{Binding Calculations, Mode=TwoWay}"/>
+            Text="{Binding Calculations, Mode=OneWay}"/>
         <TextBox 
             Style="{StaticResource ResultBox}"
-            Text="{Binding Result, Mode=TwoWay}"/>
+            Text="{Binding Result, Mode=OneWay}"/>
     </Grid>
 </Window>

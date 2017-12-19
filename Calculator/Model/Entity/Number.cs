@@ -4,50 +4,53 @@ namespace Calculator.Model.Entity
 {
     public class Number
     {
-        public double Value { get; set; } = EmptyNumber.Value;        
+        public double Value { get; set; }        
 
         public static Number EmptyNumber = new NullNumber();
 
-        protected Number() { }
+        protected Number()
+        {
+ //           Value = ;
+        }
 
         public Number(double value)
         {
             Value = value;
         }
 
-        internal Number Add(Number _secondNumber)
+        internal virtual Number Add(Number _secondNumber)
         {
             return new Number(this.Value + _secondNumber.Value);
         }
 
-        internal Number ChangeSign()
+        internal virtual Number ChangeSign()
         {
             return new Number(this.Value * (-1));
         }
 
-        internal Number SquareRoot()
+        internal virtual Number SquareRoot()
         {
             // Here add something with negative numbers 
             return new Number(Math.Sqrt(this.Value));
         }
 
-        internal Number Substract(Number _secondNumber)
+        internal virtual Number Substract(Number _secondNumber)
         {
             return new Number(this.Value - _secondNumber.Value);
         }
 
-        internal Number SquareExpoment()
+        internal virtual Number SquareExpoment()
         {            
             return new Number(this.Value * this.Value);
         }
 
-        internal Number Divide(Number _secondNumber)
+        internal virtual Number Divide(Number _secondNumber)
         {
             // Here add something with zero dividing
             return new Number(this.Value / _secondNumber.Value);
         }
 
-        internal Number Multiply(Number _secondNumber)
+        internal virtual Number Multiply(Number _secondNumber)
         {
             return new Number(this.Value * _secondNumber.Value);
         }

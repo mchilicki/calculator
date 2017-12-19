@@ -4,19 +4,16 @@ namespace Calculator.Model.Operation
 {
     public abstract class TwoArgumentOperation : BaseOperation
     {
-        public Number _firstNumber;
-        public Number _secondNumber;
+        public Number SecondNumber { get; set; }
 
-        public TwoArgumentOperation(Number firstNumber)
+        public TwoArgumentOperation(Number firstNumber) : base(firstNumber)
         {
-            _firstNumber = firstNumber;
-            _secondNumber = Number.EmptyNumber;
+            SecondNumber = Number.EmptyNumber;
         }
 
-        public TwoArgumentOperation(Number firstNumber, Number secondNumber)
+        public TwoArgumentOperation(Number firstNumber, Number secondNumber) : base(firstNumber)
         {
-            _firstNumber = firstNumber;
-            _secondNumber = secondNumber;
+            SecondNumber = secondNumber;
         }
     }
 }

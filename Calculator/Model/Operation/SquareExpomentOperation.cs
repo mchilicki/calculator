@@ -10,7 +10,7 @@ namespace Calculator.Model.Operation
 
         public override Number Execute()
         {
-            return _number.SquareExpoment();
+            return Number.SquareExpoment();
         }
     }
 }

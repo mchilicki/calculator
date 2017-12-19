@@ -12,7 +12,7 @@ namespace Calculator.Model.Operation
 
         public override Number Execute()
         {
-            return _firstNumber.Multiply(_secondNumber);
+            return _firstNumber.Multiply(SecondNumber);
         }
     }
 }

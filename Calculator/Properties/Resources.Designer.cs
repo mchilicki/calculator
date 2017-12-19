@@ -70,6 +70,15 @@ namespace Calculator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 10.
+        /// </summary>
+        public static string DecimalBase {
+            get {
+                return ResourceManager.GetString("DecimalBase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ÷.
         /// </summary>
         public static string DivisionSign {

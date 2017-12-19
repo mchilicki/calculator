@@ -1,5 +1,4 @@
-﻿using System;
-using Calculator.Model.Entity;
+﻿using Calculator.Model.Entity;
 
 namespace Calculator.Model.Operation
 {
@@ -13,7 +12,7 @@ namespace Calculator.Model.Operation
 
         public override Number Execute()
         {
-            return _firstNumber.Divide(_secondNumber);
+            return _firstNumber.Divide(SecondNumber);
         }
     }
 }

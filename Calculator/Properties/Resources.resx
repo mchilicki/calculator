@@ -120,6 +120,9 @@
   <data name="ClearAllSign" xml:space="preserve">
     <value>C</value>
   </data>
+  <data name="DecimalBase" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="DivisionSign" xml:space="preserve">
     <value>÷</value>
   </data>
