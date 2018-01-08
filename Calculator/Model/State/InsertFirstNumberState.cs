@@ -4,27 +4,27 @@ using Calculator.Model.Entity;
 
 namespace Calculator.Model.State
 {
-    class InsertFirstNumberState : CalculationState
+    public class InsertFirstNumberState : CalculationState
     {
-        protected override void Execute()
+        public override Number Execute()
         {
             throw new NotImplementedException();
         }
 
-        protected override void InsertDigit(string digit)
+        public override void InsertDigit(string digit)
         {
-            Operation.FirstNumber = new Number(
-                Operation.FirstNumber.Value * 
+            FirstNumber = new Number(
+                FirstNumber.Value * 
                 double.Parse(Properties.Resources.DecimalBase) + 
                 double.Parse(digit));
         }
 
-        protected override void InsertDot()
+        public override void InsertDot()
         {
             throw new NotImplementedException();
         }
 
-        protected override void SetOperation(OperationType operationType)
+        protected override void SetOperationType(OperationType operationType)
         {
             throw new NotImplementedException();
         }

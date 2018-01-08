@@ -1,9 +1,10 @@
 ﻿using Calculator.Enum;
 using Calculator.Model.Entity;
+using Calculator.Model.Operation.Base;
 
 namespace Calculator.Model.Operation
 {
-    public static class TwoParameterOperationFactory
+    public static class OperationFactory
     {
         public static BaseOperation Create(OperationType operationType, Number firstNumber, Number secondNumber)
         {
@@ -18,7 +19,7 @@ namespace Calculator.Model.Operation
                 case OperationType.Division:
                     return new DivideOperation(firstNumber, secondNumber);
                 default:
-                    return new NullOperation();
+                    return new NullOperation(firstNumber, secondNumber);
             }
         }
     }

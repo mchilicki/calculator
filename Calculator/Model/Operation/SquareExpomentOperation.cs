@@ -1,8 +1,9 @@
 ﻿using Calculator.Model.Entity;
+using Calculator.Model.Operation.Base;
 
 namespace Calculator.Model.Operation
 {
-    class SquareExpomentOperation : OneArgumentOperation
+    class SquareExpomentOperation : FastOperation
     {
         public SquareExpomentOperation(Number number) : base(number) { }
 
@@ -10,7 +11,7 @@ namespace Calculator.Model.Operation
 
         public override Number Execute()
         {
-            return Number.SquareExpoment();
+            return _number.SquareExpoment();
         }
     }
 }

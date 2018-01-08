@@ -1,5 +1,4 @@
 ﻿using Calculator.Model;
-using Calculator.Model.Operation;
 using Calculator.ViewModel.Base;
 using System.Windows.Input;
 

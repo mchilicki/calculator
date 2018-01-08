@@ -1,26 +1,27 @@
 ﻿using System;
 using Calculator.Enum;
+using Calculator.Model.Entity;
 
 namespace Calculator.Model.State
 {
     class InsertSecondNumberState : CalculationState
     {
-        protected override void Execute()
+        public override Number Execute()
         {
             throw new NotImplementedException();
         }
 
-        protected override void InsertDigit(string digit)
+        public override void InsertDigit(string digit)
         {
             throw new NotImplementedException();
         }
 
-        protected override void InsertDot()
+        public override void InsertDot()
         {
             throw new NotImplementedException();
         }
 
-        protected override void SetOperation(OperationType operationType)
+        protected override void SetOperationType(OperationType operationType)
         {
             throw new NotImplementedException();
         }

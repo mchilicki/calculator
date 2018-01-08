@@ -1,8 +1,9 @@
 ﻿using Calculator.Model.Entity;
+using Calculator.Model.Operation.Base;
 
 namespace Calculator.Model.Operation
 {
-    class ChangeSignOperation : OneArgumentOperation
+    class ChangeSignOperation : FastOperation
     {
         public ChangeSignOperation(Number number) : base(number)
         {
@@ -12,7 +13,7 @@ namespace Calculator.Model.Operation
 
         public override Number Execute()
         {
-            return Number.ChangeSign();
+            return _number.ChangeSign();
         }
     }
 }

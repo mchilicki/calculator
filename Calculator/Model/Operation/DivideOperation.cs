@@ -1,18 +1,18 @@
 ﻿using Calculator.Model.Entity;
+using Calculator.Model.Operation.Base;
 
 namespace Calculator.Model.Operation
 {
-    class DivideOperation : TwoArgumentOperation
+    class DivideOperation : BaseOperation
     {
-        public DivideOperation(Number firstNumber) : base(firstNumber) { }
-
-        public DivideOperation(Number firstNumber, Number secondNumber) : base(firstNumber, secondNumber) { }
+        public DivideOperation(Number firstNumber, Number secondNumber) 
+            : base(firstNumber, secondNumber) { }
 
         public override string OperationSign { get; } = Properties.Resources.DivisionSign;
 
         public override Number Execute()
         {
-            return _firstNumber.Divide(SecondNumber);
+            return _firstNumber.Divide(_secondNumber);
         }
     }
 }
