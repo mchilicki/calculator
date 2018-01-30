@@ -7,8 +7,6 @@ namespace Calculator.ViewModel
     class CalculatorViewModel : BaseViewModel
     {
         private CalculationManager _calculationManager = new CalculationManager();
-        //private BaseOperation _operation = BaseOperation.EmptyOperation;
-
 
         private string _firstNumber = string.Empty;
         public string FirstNumber
@@ -20,6 +18,7 @@ namespace Calculator.ViewModel
             set
             {
                 _firstNumber = value;
+                _calculationManager.FirstNumber = value;
                 RaisePropertyChanged(nameof(Calculations));
             }
         }
@@ -34,6 +33,7 @@ namespace Calculator.ViewModel
             set
             {
                 _secondNumber = value;
+                _calculationManager.SecondNumber = value;
                 RaisePropertyChanged(nameof(Calculations));
             }
         }
@@ -160,23 +160,6 @@ namespace Calculator.ViewModel
         }
 
 
-
-        private Enum.OperationType DetermineOperationType(string operationSign)
-        {
-            if (operationSign.Equals(Properties.Resources.ExponentSign))
-                return Enum.OperationType.SquareExpoment;
-            if (operationSign.Equals(Properties.Resources.MinusSign))
-                return Enum.OperationType.Substraction;
-            if (operationSign.Equals(Properties.Resources.MultiplicationSign))
-                return Enum.OperationType.Multiplication;
-            if (operationSign.Equals(Properties.Resources.PlusSign))
-                return Enum.OperationType.Addition;
-            if (operationSign.Equals(Properties.Resources.RootSign))
-                return Enum.OperationType.SquareRoot;
-            if (operationSign.Equals(Properties.Resources.DivisionSign))
-                return Enum.OperationType.Division;
-            return Enum.OperationType.Undefined;
-        }
 
         private void AddNumber(string number)
         {

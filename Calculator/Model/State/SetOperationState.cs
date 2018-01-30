@@ -6,17 +6,17 @@ namespace Calculator.Model.State
 {
     class SetOperationState : CalculationState
     {
+        public SetOperationState(CalculationState calculationState)
+        {
+            Calculation = calculationState.Calculation;
+        }
+
         public override Number Execute()
         {
             throw new NotImplementedException();
         }
 
-        public override void InsertDigit(string digit)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void InsertDot()
+        public override void SetNumber(string number)
         {
             throw new NotImplementedException();
         }

@@ -6,37 +6,41 @@ namespace Calculator.Model
 {
     public class CalculationManager : INotifyPropertyChanged
     {
-        private CalculationState _calculationState = new InsertFirstNumberState();                 
+        private CalculationState _calculationState = new InsertFirstNumberState();
 
-        public string OperationSign { get { return _calculationState.OperationSign; } }
+                     
 
-        public Number FirstNumber
+        //public string OperationSign { get { return _calculationState.Calculation.OperationSign; } }
+
+        public string FirstNumber
         {
             get
             {
-                return _calculationState.FirstNumber;
+                return _calculationState.Calculation.FirstNumber.ToString();
             }
             set
             {
+                _calculationState.SetNumber(value);
                 RaisePropertyChanged(nameof(FirstNumber));
             }
         } 
 
-        public Number SecondNumber
+        public string SecondNumber
         {
             get
             {
-                return _calculationState.SecondNumber;
+                return _calculationState.Calculation.SecondNumber.ToString();
             }
             set
             {
+                _calculationState.SetNumber(value);
                 RaisePropertyChanged(nameof(SecondNumber));
             }
         }
 
         public Number Execute()
         {
-            return _calculationState.Operation.Execute();
+            return _calculationState.Calculation.Operation.Execute();
         }
 
         public virtual void RaisePropertyChanged(string propertyName)

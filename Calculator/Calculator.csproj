@@ -89,6 +89,7 @@
     </Compile>
     <Compile Include="Enum\OperationType.cs" />
     <Compile Include="Model\CalculationManager.cs" />
+    <Compile Include="Model\Entity\Calculation.cs" />
     <Compile Include="Model\Entity\NullNumber.cs" />
     <Compile Include="Model\Entity\Number.cs" />
     <Compile Include="Model\Operation\AddOperation.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Model\Operation\Base\NullFastOperation.cs" />
     <Compile Include="Model\Operation\ChangeSignOperation.cs" />
     <Compile Include="Model\Operation\DivideOperation.cs" />
+    <Compile Include="Model\Operation\Helper\OperationTypeDecoder.cs" />
     <Compile Include="Model\Operation\MultiplyOperation.cs" />
     <Compile Include="Model\Operation\Base\NullOperation.cs" />
     <Compile Include="Model\Operation\FastOperationFactory.cs" />

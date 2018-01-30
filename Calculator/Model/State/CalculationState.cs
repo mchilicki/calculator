@@ -6,51 +6,18 @@ namespace Calculator.Model.State
 {
     public abstract class CalculationState : INotifyPropertyChanged
     {
-        public BaseOperation Operation { get; set; }
-
-        public FastOperation FastOperation { get; set; }
-
-        private Number _firstNumber;
-        public Number FirstNumber
+        private Calculation _calculation;
+        public Calculation Calculation
         {
             get
             {
-                return _firstNumber;
+                return _calculation;
             }
             set
             {
-                _firstNumber = value;
-                RaisePropertyChanged(nameof(FirstNumber));
+                _calculation = value;
             }
         }
-
-        private Number _secondNumber;
-        public Number SecondNumber
-        {
-            get
-            {
-                return _secondNumber;
-            }
-            set
-            {
-                _secondNumber = value;
-                RaisePropertyChanged(nameof(SecondNumber));
-            }
-        }
-
-        private string _operationSign;
-        public string OperationSign 
-                         {
-            get
-            {
-                return _operationSign;
-            }
-            set
-            {
-                _operationSign = value;
-                RaisePropertyChanged(nameof(OperationSign));
-            }
-        }  
 
         public void SetOperation(Enum.OperationType operationType)
         {
@@ -58,13 +25,11 @@ namespace Calculator.Model.State
             SetOperationType(operationType);
         }
 
-        public abstract void InsertDigit(string digit);
-
-        public abstract void InsertDot();          
-
-        public abstract Number Execute();
-
         protected abstract void SetOperationType(Enum.OperationType operationType);
+
+        public abstract void SetNumber(string number);       
+
+        public abstract Number Execute();        
 
         public virtual void RaisePropertyChanged(string propertyName)
         {
