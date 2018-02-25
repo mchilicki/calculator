@@ -1,7 +1,6 @@
 ﻿using System;
 using Calculator.Enum;
 using Calculator.Model.Entity;
-using Calculator.Model.Operation;
 
 namespace Calculator.Model.State
 {

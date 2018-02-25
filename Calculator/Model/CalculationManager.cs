@@ -1,4 +1,5 @@
 ﻿using Calculator.Model.Entity;
+using Calculator.Model.Operation.Helper;
 using Calculator.Model.State;
 using System.ComponentModel;
 
@@ -8,9 +9,21 @@ namespace Calculator.Model
     {
         private CalculationState _calculationState = new InsertFirstNumberState();
 
-                     
+        public string OperationSign
+        {
+            get
+            {
+                if (_calculationState.Calculation != null)
+                    return OperationTypeDecoder.DetermineOperationSign
+                        (_calculationState.Calculation.OperationType);
+                else
+                    return string.Empty;
+            }
+            set
+            {
 
-        //public string OperationSign { get { return _calculationState.Calculation.OperationSign; } }
+            }
+        }
 
         public string FirstNumber
         {

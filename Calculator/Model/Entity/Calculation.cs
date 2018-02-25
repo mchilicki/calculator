@@ -1,11 +1,6 @@
 ﻿using Calculator.Enum;
 using Calculator.Model.Operation.Base;
 using Calculator.Model.State;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculator.Model.Entity
 {
@@ -22,11 +17,14 @@ namespace Calculator.Model.Entity
         {
             get
             {
+                // switch it to NullNumber later
+                if (_firstNumber == null)
+                    _firstNumber = new Number(0);
                 return _firstNumber;
             }
             set
             {
-                _firstNumber = value;
+                _firstNumber = new Number(value.Value);
                // RaisePropertyChanged(nameof(FirstNumber));
             }
         }
@@ -36,12 +34,15 @@ namespace Calculator.Model.Entity
         {
             get
             {
+                // switch it to null number
+                if (_firstNumber == null)
+                    _firstNumber = new Number(0);
                 return _secondNumber;
             }
             set
             {
-                _secondNumber = value;
-               // RaisePropertyChanged(nameof(SecondNumber));
+                _secondNumber = new Number(value.Value);
+                // RaisePropertyChanged(nameof(SecondNumber));
             }
         }
 

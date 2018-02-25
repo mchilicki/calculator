@@ -20,39 +20,39 @@ namespace Calculator.Model.Entity
 
         internal virtual Number Add(Number _secondNumber)
         {
-            return new Number(this.Value + _secondNumber.Value);
+            return new Number(Value + _secondNumber.Value);
         }
 
         internal virtual Number ChangeSign()
         {
-            return new Number(this.Value * (-1));
+            return new Number(Value * (-1));
         }
 
         internal virtual Number SquareRoot()
         {
             // Here add something with negative numbers 
-            return new Number(Math.Sqrt(this.Value));
+            return new Number(Math.Sqrt(Value));
         }
 
         internal virtual Number Substract(Number _secondNumber)
         {
-            return new Number(this.Value - _secondNumber.Value);
+            return new Number(Value - _secondNumber.Value);
         }
 
         internal virtual Number SquareExpoment()
         {            
-            return new Number(this.Value * this.Value);
+            return new Number(Value * Value);
         }
 
         internal virtual Number Divide(Number _secondNumber)
         {
             // Here add something with zero dividing
-            return new Number(this.Value / _secondNumber.Value);
+            return new Number(Value / _secondNumber.Value);
         }
 
         internal virtual Number Multiply(Number _secondNumber)
         {
-            return new Number(this.Value * _secondNumber.Value);
+            return new Number(Value * _secondNumber.Value);
         }
     }
 }

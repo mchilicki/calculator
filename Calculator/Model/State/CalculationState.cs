@@ -1,5 +1,4 @@
 ﻿using Calculator.Model.Entity;
-using Calculator.Model.Operation.Base;
 using System.ComponentModel;
 
 namespace Calculator.Model.State
@@ -11,6 +10,8 @@ namespace Calculator.Model.State
         {
             get
             {
+                if (_calculation == null)
+                    _calculation = new Calculation();
                 return _calculation;
             }
             set

@@ -4,24 +4,27 @@ namespace Calculator.Model.Operation.Helper
 {
     class OperationTypeDecoder
     {
-        public OperationType DetermineOperationType(string operationSign)
+        public static OperationType DetermineOperationType(string operationSign)
         {
-            if (operationSign.Equals(Properties.Resources.ExponentSign))
-                return OperationType.SquareExpoment;
-            if (operationSign.Equals(Properties.Resources.MinusSign))
-                return OperationType.Substraction;
-            if (operationSign.Equals(Properties.Resources.MultiplicationSign))
-                return OperationType.Multiplication;
-            if (operationSign.Equals(Properties.Resources.PlusSign))
-                return OperationType.Addition;
-            if (operationSign.Equals(Properties.Resources.RootSign))
-                return OperationType.SquareRoot;
-            if (operationSign.Equals(Properties.Resources.DivisionSign))
-                return OperationType.Division;
+            if (operationSign != null)
+            {
+                if (operationSign.Equals(Properties.Resources.ExponentSign))
+                    return OperationType.SquareExpoment;
+                if (operationSign.Equals(Properties.Resources.MinusSign))
+                    return OperationType.Substraction;
+                if (operationSign.Equals(Properties.Resources.MultiplicationSign))
+                    return OperationType.Multiplication;
+                if (operationSign.Equals(Properties.Resources.PlusSign))
+                    return OperationType.Addition;
+                if (operationSign.Equals(Properties.Resources.RootSign))
+                    return OperationType.SquareRoot;
+                if (operationSign.Equals(Properties.Resources.DivisionSign))
+                    return OperationType.Division;
+            }
             return OperationType.Undefined;
         }
 
-        public string DetermineOperationSign(OperationType operationType)
+        public static string DetermineOperationSign(OperationType operationType)
         {
             switch (operationType)
             {

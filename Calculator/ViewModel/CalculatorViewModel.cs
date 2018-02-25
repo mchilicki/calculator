@@ -80,7 +80,7 @@ namespace Calculator.ViewModel
                     _numericCommand = new RelayCommand(
                         number =>
                         {
-                            AddNumber(number.ToString());
+                            FirstNumber += number.ToString();
                         });
                 }
                 return _numericCommand;
@@ -157,13 +157,6 @@ namespace Calculator.ViewModel
                 }
                 return _dotCommand;
             }
-        }
-
-
-
-        private void AddNumber(string number)
-        {
-            FirstNumber += number;
         }
     }
 }
