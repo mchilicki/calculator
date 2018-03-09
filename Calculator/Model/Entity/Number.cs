@@ -6,11 +6,8 @@ namespace Calculator.Model.Entity
     {
         public double Value { get; set; }        
 
-        public static Number EmptyNumber = new NullNumber();
-
         protected Number()
         {
- //           Value = ;
         }
 
         public Number(double value)
@@ -30,7 +27,7 @@ namespace Calculator.Model.Entity
 
         internal virtual Number SquareRoot()
         {
-            // Here add something with negative numbers 
+            // TODO Here add something with negative numbers 
             return new Number(Math.Sqrt(Value));
         }
 
@@ -46,7 +43,7 @@ namespace Calculator.Model.Entity
 
         internal virtual Number Divide(Number _secondNumber)
         {
-            // Here add something with zero dividing
+            // TODO Here add something with zero dividing
             return new Number(Value / _secondNumber.Value);
         }
 

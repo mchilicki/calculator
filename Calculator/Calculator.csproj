@@ -88,28 +88,17 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Enum\OperationType.cs" />
-    <Compile Include="Model\CalculationManager.cs" />
-    <Compile Include="Model\Entity\Calculation.cs" />
-    <Compile Include="Model\Entity\NullNumber.cs" />
+    <Compile Include="Model\Calculation.cs" />
     <Compile Include="Model\Entity\Number.cs" />
     <Compile Include="Model\Operation\AddOperation.cs" />
     <Compile Include="Model\Operation\Base\BaseOperation.cs" />
-    <Compile Include="Model\Operation\Base\FastOperation.cs" />
-    <Compile Include="Model\Operation\Base\NullFastOperation.cs" />
     <Compile Include="Model\Operation\ChangeSignOperation.cs" />
     <Compile Include="Model\Operation\DivideOperation.cs" />
-    <Compile Include="Model\Operation\Helper\OperationTypeDecoder.cs" />
     <Compile Include="Model\Operation\MultiplyOperation.cs" />
-    <Compile Include="Model\Operation\Base\NullOperation.cs" />
-    <Compile Include="Model\Operation\FastOperationFactory.cs" />
     <Compile Include="Model\Operation\SquareExpomentOperation.cs" />
     <Compile Include="Model\Operation\SquareRootOperation.cs" />
     <Compile Include="Model\Operation\SubstractOperation.cs" />
     <Compile Include="Model\Operation\OperationFactory.cs" />
-    <Compile Include="Model\State\CalculationState.cs" />
-    <Compile Include="Model\State\InsertFirstNumberState.cs" />
-    <Compile Include="Model\State\InsertSecondNumberState.cs" />
-    <Compile Include="Model\State\SetOperationState.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\Base\NoParameterCommand.cs" />
     <Compile Include="ViewModel\Base\RelayCommand.cs" />

@@ -18,8 +18,15 @@ namespace Calculator.Model.Operation
                     return new MultiplyOperation(firstNumber, secondNumber);
                 case OperationType.Division:
                     return new DivideOperation(firstNumber, secondNumber);
+                case OperationType.ChangingSign:
+                    return new ChangeSignOperation(firstNumber, secondNumber);
+                case OperationType.SquareExpoment:
+                    return new SquareExpomentOperation(firstNumber, secondNumber);
+                case OperationType.SquareRoot:
+                    return new SquareRootOperation(firstNumber, secondNumber);
                 default:
-                    return new NullOperation(firstNumber, secondNumber);
+                    return null;
+                // TODO erase null and move it to NullOperation
             }
         }
     }

@@ -3,15 +3,16 @@ using Calculator.Model.Operation.Base;
 
 namespace Calculator.Model.Operation
 {
-    class SquareRootOperation : FastOperation
+    class SquareRootOperation : BaseOperation
     {
-        public SquareRootOperation(Number number) : base(number) { }
+        public SquareRootOperation(Number firstNumber, Number secondNumber)
+            : base(firstNumber, secondNumber) { }
 
         public override string OperationSign { get; } = Properties.Resources.RootSign;
 
         public override Number Execute()
         {
-            return _number.SquareRoot();
+            return null; // TODO Square execute
         }
     }
 }

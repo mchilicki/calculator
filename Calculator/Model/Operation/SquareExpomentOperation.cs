@@ -3,15 +3,16 @@ using Calculator.Model.Operation.Base;
 
 namespace Calculator.Model.Operation
 {
-    class SquareExpomentOperation : FastOperation
+    class SquareExpomentOperation : BaseOperation
     {
-        public SquareExpomentOperation(Number number) : base(number) { }
+        public SquareExpomentOperation(Number firstNumber, Number secondNumber)
+            : base(firstNumber, secondNumber) { }
 
         public override string OperationSign { get; } = Properties.Resources.ExponentSign;
 
         public override Number Execute()
         {
-            return _number.SquareExpoment();
+            return null; // TODO execute square exp
         }
     }
 }

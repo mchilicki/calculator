@@ -10,9 +10,6 @@ namespace Calculator.Model.Operation.Base
         public abstract Number Execute();
         public abstract string OperationSign { get; }
 
-        public static BaseOperation EmptyOperation { get; } 
-            = new NullOperation(Number.EmptyNumber, Number.EmptyNumber);
-
         public BaseOperation(Number firstNumber, Number secondNumber)
         {
             _firstNumber = firstNumber;

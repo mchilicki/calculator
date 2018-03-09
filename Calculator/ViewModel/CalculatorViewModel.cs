@@ -6,8 +6,6 @@ namespace Calculator.ViewModel
 {
     class CalculatorViewModel : BaseViewModel
     {
-        private CalculationManager _calculationManager = new CalculationManager();
-
         private string _firstNumber = string.Empty;
         public string FirstNumber
         {
@@ -18,8 +16,7 @@ namespace Calculator.ViewModel
             set
             {
                 _firstNumber = value;
-                _calculationManager.FirstNumber = value;
-                RaisePropertyChanged(nameof(Calculations));
+                //RaisePropertyChanged(nameof(Calculations));
             }
         }
 
@@ -33,12 +30,12 @@ namespace Calculator.ViewModel
             set
             {
                 _secondNumber = value;
-                _calculationManager.SecondNumber = value;
-                RaisePropertyChanged(nameof(Calculations));
+                //RaisePropertyChanged(nameof(Calculations));
             }
         }
 
-        private string _calculations = string.Empty;
+        /*TODO Normalize this method
+         * private string _calculations = string.Empty;
         public string Calculations
         {
             get
@@ -52,7 +49,7 @@ namespace Calculator.ViewModel
                 _calculations = value;
                 RaisePropertyChanged(nameof(Calculations));
             }
-        }
+        }*/
 
         private string _result;
         public string Result
@@ -114,7 +111,6 @@ namespace Calculator.ViewModel
                     _clearCommand = new NoParameterCommand(
                         () =>
                         {
-                            //_calculationManager.Operation = BaseOperation.EmptyOperation;
                             FirstNumber = string.Empty;
                             SecondNumber = string.Empty;
                             Result = string.Empty;
@@ -134,8 +130,7 @@ namespace Calculator.ViewModel
                     _executeCommand = new NoParameterCommand(
                         () =>
                         {
-
-                            _calculationManager.Execute();
+                            
                         });
                 }
                 return _executeCommand;

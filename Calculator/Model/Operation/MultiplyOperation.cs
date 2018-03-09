@@ -12,6 +12,7 @@ namespace Calculator.Model.Operation
 
         public override Number Execute()
         {
+            // TODO multiply execute
             return _firstNumber.Multiply(_secondNumber);
         }
     }

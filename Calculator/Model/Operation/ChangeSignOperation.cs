@@ -3,17 +3,16 @@ using Calculator.Model.Operation.Base;
 
 namespace Calculator.Model.Operation
 {
-    class ChangeSignOperation : FastOperation
+    class ChangeSignOperation : BaseOperation
     {
-        public ChangeSignOperation(Number number) : base(number)
-        {
-        }
+        public ChangeSignOperation(Number firstNumber, Number secondNumber)
+            : base(firstNumber, secondNumber) { }
 
         public override string OperationSign { get; } = Properties.Resources.PlusMinusSign;
 
         public override Number Execute()
         {
-            return _number.ChangeSign();
+            return null; // TODO Change sign execute
         }
     }
 }
