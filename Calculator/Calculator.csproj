@@ -55,6 +55,9 @@
   <PropertyGroup>
     <StartupObject>Calculator.App</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Config\Wwalczyszyn-Android-Style-Honeycomb-Calculator.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -84,7 +87,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Enum\OperationSignClass.cs" />
+    <Compile Include="Enum\OperationType.cs" />
+    <Compile Include="Enum\OperationTypeExtension.cs" />
+    <Compile Include="Model\Entity\Number.cs" />
+    <Compile Include="Model\Operation\AddOperation.cs" />
+    <Compile Include="Model\Operation\Base\BaseOperation.cs" />
+    <Compile Include="Model\Operation\ChangeSignOperation.cs" />
+    <Compile Include="Model\Operation\DivideOperation.cs" />
+    <Compile Include="Model\Operation\EmptyOperation.cs" />
+    <Compile Include="Model\Operation\MultiplyOperation.cs" />
+    <Compile Include="Model\Operation\SquareExpomentOperation.cs" />
+    <Compile Include="Model\Operation\SquareRootOperation.cs" />
+    <Compile Include="Model\Operation\SubstractOperation.cs" />
+    <Compile Include="Model\Operation\Base\OperationFactory.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Base\NoParameterCommand.cs" />
     <Compile Include="ViewModel\Base\RelayCommand.cs" />
     <Compile Include="ViewModel\CalculatorViewModel.cs" />
     <Compile Include="View\ApplicationView.xaml.cs">
@@ -124,10 +142,7 @@
   <ItemGroup>
     <None Include="Config\App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enum\" />
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
       <Visible>False</Visible>
@@ -139,6 +154,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Config\Wwalczyszyn-Android-Style-Honeycomb-Calculator.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

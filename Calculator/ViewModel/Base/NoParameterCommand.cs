@@ -4,17 +4,18 @@ using System.Windows.Input;
 
 namespace Calculator.ViewModel.Base
 {
-    public class RelayCommand : ICommand
+    class NoParameterCommand : ICommand
     {
-        private Action<object> _executeDelegate;
-        private Predicate<object> _canExecuteDelegate;
+        private Action _executeDelegate = null;
+        private Func<bool> _canExecuteDelegate = null;
 
-        public RelayCommand(Action<object> execute)
-            : this(execute, null)
+        public NoParameterCommand(Action execute)
         {
+            _executeDelegate = execute;
+            _canExecuteDelegate = () => { return true; };
         }
 
-        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
+        public NoParameterCommand(Action execute, Func<bool> canExecute)
         {
             if (execute == null)
                 throw new ArgumentNullException("Execute function is null");
@@ -26,7 +27,7 @@ namespace Calculator.ViewModel.Base
         [DebuggerStepThrough]
         public bool CanExecute(object parameters)
         {
-            return _canExecuteDelegate == null ? true : _canExecuteDelegate(parameters);
+            return _canExecuteDelegate();
         }
 
         public event EventHandler CanExecuteChanged
@@ -37,7 +38,10 @@ namespace Calculator.ViewModel.Base
 
         public void Execute(object parameters)
         {
-            _executeDelegate(parameters);
+            if (_executeDelegate != null)
+            {
+                _executeDelegate();
+            }
         }
     }
 }

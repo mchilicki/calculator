@@ -120,6 +120,12 @@
   <data name="ClearAllSign" xml:space="preserve">
     <value>C</value>
   </data>
+  <data name="DecimalBase" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="DividingErrorMessage" xml:space="preserve">
+    <value>Can't divide by zero</value>
+  </data>
   <data name="DivisionSign" xml:space="preserve">
     <value>÷</value>
   </data>
@@ -132,6 +138,9 @@
   <data name="ExponentSign" xml:space="preserve">
     <value>x²</value>
   </data>
+  <data name="ExponentSignOnlyNumber" xml:space="preserve">
+    <value>²</value>
+  </data>
   <data name="Infinity" xml:space="preserve">
     <value>∞</value>
   </data>
@@ -140,6 +149,39 @@
   </data>
   <data name="MultiplicationSign" xml:space="preserve">
     <value>×</value>
+  </data>
+  <data name="Number0" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Number1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Number2" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Number3" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Number4" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Number5" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Number6" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="Number7" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="Number8" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="Number9" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="PlusMinusSign" xml:space="preserve">
+    <value>±</value>
   </data>
   <data name="PlusSign" xml:space="preserve">
     <value>+</value>
@@ -150,7 +192,10 @@
   <data name="RootSign" xml:space="preserve">
     <value>√</value>
   </data>
-  <data name="ZeroSign" xml:space="preserve">
-    <value>0</value>
+  <data name="SquareRootErrorMessage" xml:space="preserve">
+    <value>Number under root can't be negative</value>
+  </data>
+  <data name="ZeroByZeroDividingErrorMessage" xml:space="preserve">
+    <value>Can't divide zero by zero</value>
   </data>
 </root>
