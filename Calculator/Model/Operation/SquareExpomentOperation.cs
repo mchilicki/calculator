@@ -8,11 +8,9 @@ namespace Calculator.Model.Operation
         public SquareExpomentOperation(Number firstNumber, Number secondNumber)
             : base(firstNumber, secondNumber) { }
 
-        public override string OperationSign { get; } = Properties.Resources.ExponentSign;
-
         public override Number Execute()
         {
-            return null; // TODO execute square exp
+            return _firstNumber.SquareExpoment();
         }
     }
 }

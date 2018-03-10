@@ -8,8 +8,6 @@ namespace Calculator.Model.Operation
         public DivideOperation(Number firstNumber, Number secondNumber) 
             : base(firstNumber, secondNumber) { }
 
-        public override string OperationSign { get; } = Properties.Resources.DivisionSign;
-
         public override Number Execute()
         {
             // TODO execute divide

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Calculator.Properties;
+using System;
+using System.Windows;
 
 namespace Calculator.Model.Entity
 {
@@ -15,39 +17,55 @@ namespace Calculator.Model.Entity
             Value = value;
         }
 
-        internal virtual Number Add(Number _secondNumber)
+        public Number(string valueInString)
+        {
+            double value;
+            if (double.TryParse(valueInString, out value))
+                Value = value;
+        }
+
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
+
+        internal Number Add(Number _secondNumber)
         {
             return new Number(Value + _secondNumber.Value);
         }
 
-        internal virtual Number ChangeSign()
+        internal Number ChangeSign()
         {
             return new Number(Value * (-1));
         }
 
-        internal virtual Number SquareRoot()
+        internal Number SquareRoot()
         {
-            // TODO Here add something with negative numbers 
+            if (Value < 0)
+                throw new ArithmeticException(Resources.SquareRootErrorMessage);
             return new Number(Math.Sqrt(Value));
         }
 
-        internal virtual Number Substract(Number _secondNumber)
+        internal Number Substract(Number _secondNumber)
         {
             return new Number(Value - _secondNumber.Value);
         }
 
-        internal virtual Number SquareExpoment()
+        internal Number SquareExpoment()
         {            
             return new Number(Value * Value);
         }
 
-        internal virtual Number Divide(Number _secondNumber)
+        internal Number Divide(Number _secondNumber)
         {
-            // TODO Here add something with zero dividing
+            if (Value == 0 && _secondNumber.Value == 0)
+                throw new ArithmeticException(Resources.ZeroByZeroDividingErrorMessage);
+            if (Value != 0 && _secondNumber.Value == 0)
+                throw new ArithmeticException(Resources.DividingErrorMessage);
             return new Number(Value / _secondNumber.Value);
         }
 
-        internal virtual Number Multiply(Number _secondNumber)
+        internal Number Multiply(Number _secondNumber)
         {
             return new Number(Value * _secondNumber.Value);
         }

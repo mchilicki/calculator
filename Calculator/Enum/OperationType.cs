@@ -8,7 +8,7 @@
         Multiplication,
         Division,
         ChangingSign,
-        SquareExpoment,
+        SquareExponent,
         SquareRoot
     }
 }

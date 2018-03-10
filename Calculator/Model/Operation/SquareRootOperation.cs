@@ -8,11 +8,10 @@ namespace Calculator.Model.Operation
         public SquareRootOperation(Number firstNumber, Number secondNumber)
             : base(firstNumber, secondNumber) { }
 
-        public override string OperationSign { get; } = Properties.Resources.RootSign;
-
         public override Number Execute()
         {
-            return null; // TODO Square execute
+            // TODO Square execute
+            return _firstNumber.SquareRoot(); 
         }
     }
 }

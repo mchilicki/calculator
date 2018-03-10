@@ -8,7 +8,6 @@ namespace Calculator.Model.Operation.Base
         protected Number _secondNumber;
         
         public abstract Number Execute();
-        public abstract string OperationSign { get; }
 
         public BaseOperation(Number firstNumber, Number secondNumber)
         {

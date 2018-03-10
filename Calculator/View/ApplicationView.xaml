@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         xmlns:properties="clr-namespace:Calculator.Properties"
+        xmlns:enum="clr-namespace:Calculator.Enum"
         mc:Ignorable="d"
         Style="{StaticResource Window}">
     <Grid Name="MainGrid" Style="{StaticResource Grid}">
@@ -93,79 +94,79 @@
             Grid.Column="2" 
             Command="{Binding NumericCommand}"
             CommandParameter="{x:Static properties:Resources.Number3}"/>
-
         <Button 
             Content="{x:Static properties:Resources.PlusMinusSign}" 
             Style="{StaticResource OperationButton}" 
             Grid.Row="6" 
             Grid.Column="0" 
-            Command="{Binding OperationCommand}" 
-            CommandParameter="{x:Static properties:Resources.PlusMinusSign}"/>
-        <Button 
-            Content="{x:Static properties:Resources.Dot}"       
-            Style="{StaticResource NumericButton}"
-            Grid.Row="6" 
-            Grid.Column="2" 
-            Command="{Binding OperationCommand}"
-            CommandParameter="{x:Static properties:Resources.Dot}"/>
+            Command="{Binding FastOperationCommand}" 
+            CommandParameter="{x:Static enum:OperationType.ChangingSign}"/>        
         <Button 
             Content="{x:Static properties:Resources.ExponentSign}" 
             Style="{StaticResource OperationButton}" 
             Grid.Row="2" 
             Grid.Column="1"
-            Command="{Binding DotCommand}"/>
+            Command="{Binding FastOperationCommand}"
+            CommandParameter="{x:Static enum:OperationType.SquareExponent}"/>
         <Button 
             Content="{x:Static properties:Resources.RootSign}"
             Style="{StaticResource OperationButton}" 
             Grid.Row="2" 
             Grid.Column="2"
-            Command="{Binding OperationCommand}"
-            CommandParameter="{x:Static properties:Resources.RootSign}"/>
-        <Button 
-            Content="{x:Static properties:Resources.EqualSign}" 
-            Style="{StaticResource OperationButton}" 
-            Grid.Row="6"
-            Grid.Column="3"
-            Command="{Binding ExecuteCommand}"/>
+            Command="{Binding FastOperationCommand}"
+            CommandParameter="{x:Static enum:OperationType.SquareRoot}"/>        
         <Button 
             Content="{x:Static properties:Resources.DivisionSign}" 
             Style="{StaticResource OperationButton}" 
             Grid.Row="2" 
             Grid.Column="3"
             Command="{Binding OperationCommand}"
-            CommandParameter="{x:Static properties:Resources.DivisionSign}"/>
+            CommandParameter="{x:Static enum:OperationType.Division}"/>
         <Button 
             Content="{x:Static properties:Resources.MultiplicationSign}"
             Style="{StaticResource OperationButton}" 
             Grid.Row="3" 
             Grid.Column="3"
             Command="{Binding OperationCommand}"
-            CommandParameter="{x:Static properties:Resources.MultiplicationSign}"/>
+            CommandParameter="{x:Static enum:OperationType.Multiplication}"/>
         <Button 
             Content="{x:Static properties:Resources.MinusSign}" 
             Style="{StaticResource OperationButton}"
             Grid.Row="4" 
             Grid.Column="3"
             Command="{Binding OperationCommand}"
-            CommandParameter="{x:Static properties:Resources.MinusSign}"/>
+            CommandParameter="{x:Static enum:OperationType.Substraction}"/>
         <Button 
             Content="{x:Static properties:Resources.PlusSign}" 
             Style="{StaticResource OperationButton}"
             Grid.Row="5" 
             Grid.Column="3"
             Command="{Binding OperationCommand}"
-            CommandParameter="{x:Static properties:Resources.PlusSign}"/>
+            CommandParameter="{x:Static enum:OperationType.Addition}"/>
         <Button 
             Content="{x:Static properties:Resources.ClearAllSign}" 
             Style="{StaticResource OperationButton}" 
             Grid.Row="2" 
             Grid.Column="0"
             Command="{Binding ClearCommand}"/>
+        <Button 
+            Content="{x:Static properties:Resources.Dot}"       
+            Style="{StaticResource NumericButton}"
+            Grid.Row="6" 
+            Grid.Column="2" 
+            Command="{Binding DotCommand}"/>
+        <Button 
+            Content="{x:Static properties:Resources.EqualSign}" 
+            Style="{StaticResource OperationButton}" 
+            Grid.Row="6"
+            Grid.Column="3"
+            Command="{Binding ExecuteCommand}"/>
         <TextBox 
             Style="{StaticResource OperationBox}"
             Text="{Binding Calculations, Mode=OneWay}"/>
         <TextBox 
             Style="{StaticResource ResultBox}"
             Text="{Binding Result, Mode=OneWay}"/>
+        
     </Grid>
 </Window>

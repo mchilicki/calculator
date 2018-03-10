@@ -8,11 +8,8 @@ namespace Calculator.Model.Operation
         public MultiplyOperation(Number firstNumber, Number secondNumber) 
             : base(firstNumber, secondNumber) { }
 
-        public override string OperationSign { get; } = Properties.Resources.MultiplicationSign;
-
         public override Number Execute()
         {
-            // TODO multiply execute
             return _firstNumber.Multiply(_secondNumber);
         }
     }

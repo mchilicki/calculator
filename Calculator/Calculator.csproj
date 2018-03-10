@@ -87,18 +87,20 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Enum\OperationSignClass.cs" />
     <Compile Include="Enum\OperationType.cs" />
-    <Compile Include="Model\Calculation.cs" />
+    <Compile Include="Enum\OperationTypeExtension.cs" />
     <Compile Include="Model\Entity\Number.cs" />
     <Compile Include="Model\Operation\AddOperation.cs" />
     <Compile Include="Model\Operation\Base\BaseOperation.cs" />
     <Compile Include="Model\Operation\ChangeSignOperation.cs" />
     <Compile Include="Model\Operation\DivideOperation.cs" />
+    <Compile Include="Model\Operation\EmptyOperation.cs" />
     <Compile Include="Model\Operation\MultiplyOperation.cs" />
     <Compile Include="Model\Operation\SquareExpomentOperation.cs" />
     <Compile Include="Model\Operation\SquareRootOperation.cs" />
     <Compile Include="Model\Operation\SubstractOperation.cs" />
-    <Compile Include="Model\Operation\OperationFactory.cs" />
+    <Compile Include="Model\Operation\Base\OperationFactory.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
     <Compile Include="ViewModel\Base\NoParameterCommand.cs" />
     <Compile Include="ViewModel\Base\RelayCommand.cs" />

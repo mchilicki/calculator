@@ -79,6 +79,15 @@ namespace Calculator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can&apos;t divide by zero.
+        /// </summary>
+        public static string DividingErrorMessage {
+            get {
+                return ResourceManager.GetString("DividingErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ÷.
         /// </summary>
         public static string DivisionSign {
@@ -111,6 +120,15 @@ namespace Calculator.Properties {
         public static string ExponentSign {
             get {
                 return ResourceManager.GetString("ExponentSign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ².
+        /// </summary>
+        public static string ExponentSignOnlyNumber {
+            get {
+                return ResourceManager.GetString("ExponentSignOnlyNumber", resourceCulture);
             }
         }
         
@@ -264,6 +282,24 @@ namespace Calculator.Properties {
         public static string RootSign {
             get {
                 return ResourceManager.GetString("RootSign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number under root can&apos;t be negative.
+        /// </summary>
+        public static string SquareRootErrorMessage {
+            get {
+                return ResourceManager.GetString("SquareRootErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can&apos;t divide zero by zero.
+        /// </summary>
+        public static string ZeroByZeroDividingErrorMessage {
+            get {
+                return ResourceManager.GetString("ZeroByZeroDividingErrorMessage", resourceCulture);
             }
         }
     }

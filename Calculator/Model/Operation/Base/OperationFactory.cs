@@ -1,12 +1,11 @@
 ﻿using Calculator.Enum;
 using Calculator.Model.Entity;
-using Calculator.Model.Operation.Base;
 
-namespace Calculator.Model.Operation
+namespace Calculator.Model.Operation.Base
 {
     public static class OperationFactory
     {
-        public static BaseOperation Create(OperationType operationType, Number firstNumber, Number secondNumber)
+        public static BaseOperation Create(Number firstNumber, Number secondNumber, OperationType operationType)
         {
             switch (operationType)
             {
@@ -20,13 +19,12 @@ namespace Calculator.Model.Operation
                     return new DivideOperation(firstNumber, secondNumber);
                 case OperationType.ChangingSign:
                     return new ChangeSignOperation(firstNumber, secondNumber);
-                case OperationType.SquareExpoment:
+                case OperationType.SquareExponent:
                     return new SquareExpomentOperation(firstNumber, secondNumber);
                 case OperationType.SquareRoot:
                     return new SquareRootOperation(firstNumber, secondNumber);
                 default:
-                    return null;
-                // TODO erase null and move it to NullOperation
+                    return new EmptyOperation(firstNumber, secondNumber);
             }
         }
     }

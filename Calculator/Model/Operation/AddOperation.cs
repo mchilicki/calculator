@@ -8,11 +8,8 @@ namespace Calculator.Model.Operation
         public AddOperation(Number firstNumber, Number secondNumber)
             : base(firstNumber, secondNumber) { }
 
-        public override string OperationSign { get; } = Properties.Resources.PlusSign;
-
         public override Number Execute()
         {
-            // TODO execute adding
             return _firstNumber.Add(_secondNumber);
         }
     }
