@@ -70,15 +70,6 @@ namespace Calculator.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 10.
-        /// </summary>
-        public static string DecimalBase {
-            get {
-                return ResourceManager.GetString("DecimalBase", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Can&apos;t divide by zero.
         /// </summary>
         public static string DividingErrorMessage {
@@ -133,7 +124,7 @@ namespace Calculator.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ∞.
+        ///   Looks up a localized string similar to Infinity.
         /// </summary>
         public static string Infinity {
             get {
@@ -268,15 +259,6 @@ namespace Calculator.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Result Undefined.
-        /// </summary>
-        public static string ResultUndefined {
-            get {
-                return ResourceManager.GetString("ResultUndefined", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to √.
         /// </summary>
         public static string RootSign {
@@ -286,7 +268,7 @@ namespace Calculator.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number under root can&apos;t be negative.
+        ///   Looks up a localized string similar to Negative number under root.
         /// </summary>
         public static string SquareRootErrorMessage {
             get {

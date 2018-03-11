@@ -10,7 +10,6 @@ namespace Calculator.Model.Operation
 
         public override Number Execute()
         {
-            // TODO execute divide
             return _firstNumber.Divide(_secondNumber);
         }
     }

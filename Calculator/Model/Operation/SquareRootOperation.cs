@@ -10,7 +10,6 @@ namespace Calculator.Model.Operation
 
         public override Number Execute()
         {
-            // TODO Square execute
             return _firstNumber.SquareRoot(); 
         }
     }

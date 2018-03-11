@@ -120,9 +120,6 @@
   <data name="ClearAllSign" xml:space="preserve">
     <value>C</value>
   </data>
-  <data name="DecimalBase" xml:space="preserve">
-    <value>10</value>
-  </data>
   <data name="DividingErrorMessage" xml:space="preserve">
     <value>Can't divide by zero</value>
   </data>
@@ -142,7 +139,7 @@
     <value>²</value>
   </data>
   <data name="Infinity" xml:space="preserve">
-    <value>∞</value>
+    <value>Infinity</value>
   </data>
   <data name="MinusSign" xml:space="preserve">
     <value>-</value>
@@ -186,14 +183,11 @@
   <data name="PlusSign" xml:space="preserve">
     <value>+</value>
   </data>
-  <data name="ResultUndefined" xml:space="preserve">
-    <value>Result Undefined</value>
-  </data>
   <data name="RootSign" xml:space="preserve">
     <value>√</value>
   </data>
   <data name="SquareRootErrorMessage" xml:space="preserve">
-    <value>Number under root can't be negative</value>
+    <value>Negative number under root</value>
   </data>
   <data name="ZeroByZeroDividingErrorMessage" xml:space="preserve">
     <value>Can't divide zero by zero</value>
