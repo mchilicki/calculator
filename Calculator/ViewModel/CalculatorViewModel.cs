@@ -2,7 +2,6 @@
 using Calculator.Model.Entity;
 using Calculator.Model.Operation.Base;
 using Calculator.ViewModel.Base;
-using System.Windows;
 using System.Windows.Input;
 using Calculator.Properties;
 using System;
@@ -11,7 +10,11 @@ namespace Calculator.ViewModel
 {
     class CalculatorViewModel : BaseViewModel
     {
+        #region Properties and fields
+
         private BaseOperation _operation;
+
+        private OperationState _operationState = OperationState.Normal;
 
         private string _firstNumber = string.Empty;
         private string FirstNumber
@@ -98,175 +101,36 @@ namespace Calculator.ViewModel
             }
         }
 
-        #region Commands
+        #endregion Properties and fields
 
-        private ICommand _numericCommand;
-        public ICommand NumericCommand
-        {
-            get
+        #region Methods
+
+        private void Execute()
+        {            
+            ClearBeforeExecution();
+            FormatNumbers();
+            _operation = OperationFactory.Create(
+                new Number(_firstNumber),
+                new Number(_secondNumber),
+                OperationType);
+            try
             {
-                if (_numericCommand == null)
-                {
-                    _numericCommand = new RelayCommand(
-                        number =>
-                        {
-                            if (ShouldFirstNumberBeEntered())
-                                FirstNumber += number.ToString();
-                            else
-                                SecondNumber += number.ToString();
-                        });
-                }
-                return _numericCommand;
+                Result = _operation.Execute().ToString();
             }
+            catch (ArithmeticException ex)
+            {
+                Result = ex.Message;
+                _operationState = OperationState.Blocked;
+            }
+            ClearAfterExecution();
         }
 
-        private ICommand _operationCommand;
-        public ICommand OperationCommand
-        {
-            get
-            {
-                if (_operationCommand == null)
-                {
-                    _operationCommand = new RelayCommand(
-                        operationType =>
-                        {
-                            FormatNumbers();
-                            OperationType = (OperationType)operationType;
-                        });
-                }
-                return _operationCommand;
-            }
-        }
-
-        private ICommand _clearCommand;
-        public ICommand ClearCommand
-        {
-            get
-            {
-                if (_clearCommand == null)
-                {
-                    _clearCommand = new NoParameterCommand(
-                        () =>
-                        {
-                            ClearAll();
-
-                        });
-                }
-                return _clearCommand;
-            }
-        }
-
-        private ICommand _fastOperationCommand;
-        public ICommand FastOperationCommand
-        {
-            get
-            {
-                if (_fastOperationCommand == null)
-                {
-                    _fastOperationCommand = new RelayCommand(
-                        operationType =>
-                        {
-                            FormatNumbers();
-                            OperationType = (OperationType)operationType;
-                            SecondNumber = string.Empty;
-                            _operation = OperationFactory.Create(
-                                new Number(_firstNumber),
-                                new Number(_secondNumber),
-                                OperationType);
-                            try
-                            { 
-                                Number result = _operation.Execute();
-                                Result = result.ToString();
-                            }
-                                catch (ArithmeticException ex)
-                            {
-                                Result = ex.Message;
-                            }                            
-                            ClearAfterExecution();
-                        });
-                }
-                return _fastOperationCommand;
-            }
-        }
-
-        private ICommand _executeCommand;
-        public ICommand ExecuteCommand
-        {
-            get
-            {
-                if (_executeCommand == null)
-                {
-                    _executeCommand = new NoParameterCommand(
-                        () =>
-                        {
-                            FormatNumbers();
-                            _operation = OperationFactory.Create(
-                                new Number(_firstNumber),
-                                new Number(_secondNumber),
-                                OperationType);
-                            try
-                            {
-                                Number result = _operation.Execute();
-                                Result = result.ToString();
-                            }
-                            catch (ArithmeticException ex)
-                            {
-                                Result = ex.Message;
-                            }                            
-                            ClearAfterExecution();
-                        });
-                }
-                return _executeCommand;
-            }
-        }
-
-        private ICommand _dotCommand;
-        public ICommand DotCommand
-        {
-            get
-            {
-                if (_dotCommand == null)
-                {
-                    _dotCommand = new NoParameterCommand(
-                        () =>
-                        {
-                            if (ShouldFirstNumberBeEntered())
-                            {
-                                if (!FirstNumber.Contains(Resources.Dot))
-                                    FirstNumber += Resources.Dot;
-                            }
-                            else
-                            {
-                                if (!SecondNumber.Contains(Resources.Dot))
-                                    SecondNumber += Resources.Dot;
-                            }
-                        });
-                }
-                return _dotCommand;
-            }
-        }
-
-        #endregion Commands
+        #region Operation State and Format
 
         private bool ShouldFirstNumberBeEntered()
         {
             return !(OperationType != OperationType.Undefined);
-        }
-
-        private void ClearAll()
-        {
-            FirstNumber = string.Empty;
-            SecondNumber = string.Empty;
-            Result = string.Empty;
-            OperationType = OperationType.Undefined;
-            _operation = null;
-        }
-
-        private void ClearAfterExecution()
-        {
-            //FirstNumber = Result;
-            _operation = null;
-        }
+        }       
 
         private OperationSignClass CheckOperationClass()
         {
@@ -280,9 +144,8 @@ namespace Calculator.ViewModel
                 case OperationType.SquareExponent:
                     return OperationSignClass.AfterNumber;
                 case OperationType.SquareRoot:
-                    return OperationSignClass.BeforeNumber;
                 case OperationType.ChangingSign:
-                    return OperationSignClass.WithoutSign;
+                    return OperationSignClass.BeforeNumber;
                 default:
                     return OperationSignClass.Undefined;
             }
@@ -309,6 +172,205 @@ namespace Calculator.ViewModel
                     SecondNumber = Resources.Number0 + SecondNumber;
             }
         }
+
+        #endregion Operation State and Format
+
+        #region Clearing
+
+        private void ClearAll()
+        {
+            FirstNumber = string.Empty;
+            SecondNumber = string.Empty;
+            Result = string.Empty;
+            OperationType = OperationType.Undefined;
+            _operationState = OperationState.Normal;
+            _operation = null;
+        }
+
+        private void ClearAfterExecution()
+        {
+            if (_operationState != OperationState.Blocked)
+                _operationState = OperationState.JustPerformedExecution;
+            _operation = null;
+        }
+
+        private void ClearBeforeExecution()
+        {
+            if (_operationState == OperationState.JustPerformedExecution)
+            {
+                FirstNumber = Result;
+                Result = string.Empty;
+                _operationState = OperationState.Normal;
+            }
+        }
+
+        private void ClearAllBeforeExecution()
+        {
+            if (_operationState == OperationState.JustPerformedExecution)
+            {
+                ClearAll();
+                _operationState = OperationState.Normal;
+            }
+        }
+
+        private void ClearBeforeOperation()
+        {
+            if (_operationState == OperationState.JustPerformedExecution)
+            {
+                FirstNumber = Result;
+                SecondNumber = string.Empty;
+                OperationType = OperationType.Undefined;
+                _operationState = OperationState.Normal;
+            }
+        }
+
+        #endregion Clearing
+
+        #endregion Methods
+
+        #region Commands
+
+        private ICommand _numericCommand;
+        public ICommand NumericCommand
+        {
+            get
+            {
+                if (_numericCommand == null)
+                {
+                    _numericCommand = new RelayCommand(
+                        number =>
+                        {
+                            ClearAllBeforeExecution();
+                            if (ShouldFirstNumberBeEntered())
+                                FirstNumber += number.ToString();
+                            else
+                                SecondNumber += number.ToString();
+                        },
+                        operationType =>
+                        {
+                            return (_operationState != OperationState.Blocked);
+                        });
+                }
+                return _numericCommand;
+            }
+        }
+
+        private ICommand _operationCommand;
+        public ICommand OperationCommand
+        {
+            get
+            {
+                if (_operationCommand == null)
+                {
+                    _operationCommand = new RelayCommand(
+                        operationType =>
+                        {
+                            ClearBeforeOperation();
+                            FormatNumbers();
+                            OperationType = (OperationType)operationType;
+                        },
+                        operationType =>
+                        {
+                            return (_operationState != OperationState.Blocked);
+                        });
+                }
+                return _operationCommand;
+            }
+        }
+
+        private ICommand _clearCommand;
+        public ICommand ClearCommand
+        {
+            get
+            {
+                if (_clearCommand == null)
+                {
+                    _clearCommand = new NoParameterCommand(
+                        () =>
+                        {
+                            ClearAll();
+                        });
+                }
+                return _clearCommand;
+            }
+        }
+
+        private ICommand _fastOperationCommand;
+        public ICommand FastOperationCommand
+        {
+            get
+            {
+                if (_fastOperationCommand == null)
+                {
+                    _fastOperationCommand = new RelayCommand(
+                        operationType =>
+                        {
+                            OperationType = (OperationType)operationType;
+                            SecondNumber = string.Empty;
+                            Execute();
+                        },
+                        operationType =>
+                        {
+                            return (_operationState != OperationState.Blocked);
+                        });
+                }
+                return _fastOperationCommand;
+            }
+        }
+
+        private ICommand _executeCommand;
+        public ICommand ExecuteCommand
+        {
+            get
+            {
+                if (_executeCommand == null)
+                {
+                    _executeCommand = new NoParameterCommand(
+                        () =>
+                        {
+                            Execute();
+                        },
+                        () =>
+                        {
+                            return (_operationState != OperationState.Blocked);
+                        });
+                }
+                return _executeCommand;
+            }
+        }
+
+        private ICommand _dotCommand;
+        public ICommand DotCommand
+        {
+            get
+            {
+                if (_dotCommand == null)
+                {
+                    _dotCommand = new NoParameterCommand(
+                        () =>
+                        {
+                            ClearAllBeforeExecution();
+                            if (ShouldFirstNumberBeEntered())
+                            {
+                                if (!FirstNumber.Contains(Resources.Dot))
+                                    FirstNumber += Resources.Dot;
+                            }
+                            else
+                            {
+                                if (!SecondNumber.Contains(Resources.Dot))
+                                    SecondNumber += Resources.Dot;
+                            }
+                        },
+                        () =>
+                        {
+                            return (_operationState != OperationState.Blocked);
+                        });
+                }
+                return _dotCommand;
+            }
+        }
+
+        #endregion Commands
     }
 }
 

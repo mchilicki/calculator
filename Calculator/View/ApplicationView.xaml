@@ -167,6 +167,5 @@
         <TextBox 
             Style="{StaticResource ResultBox}"
             Text="{Binding Result, Mode=OneWay}"/>
-        
     </Grid>
 </Window>

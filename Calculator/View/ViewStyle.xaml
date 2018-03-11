@@ -2,10 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style x:Key="Window" TargetType="Window">
         <Setter Property="Title" Value="Calculator"/>
-        <Setter Property="Height" Value="550"/>
-        <Setter Property="Width" Value="370"/>
-        <Setter Property="MinHeight" Value="550"/>
-        <Setter Property="MinWidth" Value="370"/>
+        <Setter Property="Height" Value="580"/>
+        <Setter Property="Width" Value="425"/>
+        <Setter Property="MinHeight" Value="580"/>
+        <Setter Property="MinWidth" Value="425"/>
         <Setter Property="SizeToContent" Value="WidthAndHeight"/>
     </Style>
     <Style x:Key="Grid" TargetType="Grid">
@@ -21,7 +21,7 @@
         <Setter Property="Margin" Value="1"/>
     </Style>
     <Style x:Key="OperationBox" TargetType="TextBox">
-        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontSize" Value="22"/>
         <Setter Property="Margin" Value="2,2,2,0"/>
         <Setter Property="IsEnabled" Value="False"/>
         <Setter Property="Grid.Row" Value="0"/>
@@ -30,9 +30,10 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="TextAlignment" Value="Right"/>
         <Setter Property="Background" Value="LightGray"/>
+        <Setter Property="MaxWidth" Value="390"/>
     </Style>
     <Style x:Key="ResultBox" TargetType="TextBox">
-        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="FontSize" Value="31"/>
         <Setter Property="Margin" Value="2"/>
         <Setter Property="IsEnabled" Value="False"/>
         <Setter Property="Grid.Row" Value="1"/>
@@ -41,6 +42,7 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="TextAlignment" Value="Right"/>
         <Setter Property="Background" Value="LightGray"/>
+        <Setter Property="MaxWidth" Value="400"/>
     </Style>
 
 </ResourceDictionary>
