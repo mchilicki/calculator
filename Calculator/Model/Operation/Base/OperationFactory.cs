@@ -1,30 +1,29 @@
 ﻿using Calculator.Enum;
-using Calculator.Model.Entity;
 
 namespace Calculator.Model.Operation.Base
 {
     public static class OperationFactory
     {
-        public static BaseOperation Create(Number firstNumber, Number secondNumber, OperationType operationType)
+        public static BaseOperation Create(OperationType operationType)
         {
             switch (operationType)
             {
                 case OperationType.Addition:
-                    return new AddOperation(firstNumber, secondNumber);
+                    return new AddOperation();
                 case OperationType.Substraction:
-                    return new SubstractOperation(firstNumber, secondNumber);
+                    return new SubstractOperation();
                 case OperationType.Multiplication:
-                    return new MultiplyOperation(firstNumber, secondNumber);
+                    return new MultiplyOperation();
                 case OperationType.Division:
-                    return new DivideOperation(firstNumber, secondNumber);
+                    return new DivideOperation();
                 case OperationType.ChangingSign:
-                    return new ChangeSignOperation(firstNumber, secondNumber);
+                    return new ChangeSignOperation();
                 case OperationType.SquareExponent:
-                    return new SquareExpomentOperation(firstNumber, secondNumber);
+                    return new SquareExpomentOperation();
                 case OperationType.SquareRoot:
-                    return new SquareRootOperation(firstNumber, secondNumber);
+                    return new SquareRootOperation();
                 default:
-                    return new EmptyOperation(firstNumber, secondNumber);
+                    return new EmptyOperation();
             }
         }
     }

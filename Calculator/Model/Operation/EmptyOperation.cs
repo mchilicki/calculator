@@ -5,14 +5,9 @@ namespace Calculator.Model.Operation
 {
     class EmptyOperation : BaseOperation
     {
-        public EmptyOperation(Number firstNumber, Number secondNumber) 
-            : base(firstNumber, secondNumber)
+        public override Number Execute(Number firstNumber, Number secondNumber)
         {
-        }
-
-        public override Number Execute()
-        {
-            return _firstNumber;
+            return firstNumber;
         }
     }
 }

@@ -1,6 +1,7 @@
-﻿using Calculator.Properties;
+﻿using Calculator.Enum;
+using Calculator.Properties;
 
-namespace Calculator.Enum
+namespace Calculator.Helper
 {
     static class OperationTypeExtension
     {
