@@ -112,8 +112,8 @@ namespace Calculator.ViewModel
             _operation = OperationFactory.Create(OperationType);
             try
             {
-                Result = _operation.Execute(new Number(_firstNumber), 
-                    new Number(_secondNumber)).ToString();
+                Result = _operation.Execute().
+					ToString();
             }
             catch (ArithmeticException ex)
             {
