@@ -5,6 +5,7 @@ using Calculator.ViewModel.Base;
 using System.Windows.Input;
 using Calculator.Properties;
 using System;
+using Calculator.Helper;
 
 namespace Calculator.ViewModel
 {
@@ -63,19 +64,18 @@ namespace Calculator.ViewModel
         {
             get
             {
-                switch (CheckOperationClass())
+                switch (CheckOperationType())
                 {
-                    case OperationSignClass.Undefined:
-                    case OperationSignClass.WithoutSign:
+                    case OperationSignType.Undefined:
+                    case OperationSignType.WithoutSign:
                     default:
-                        return _firstNumber;
-                    case OperationSignClass.Normal:
-                        return _firstNumber + " " + OperationType.GetSign()
-                            + " " + _secondNumber;
-                    case OperationSignClass.AfterNumber:
-                        return _firstNumber + OperationType.GetSign();
-                    case OperationSignClass.BeforeNumber:
-                        return OperationType.GetSign() + _firstNumber;
+                        return $"{_firstNumber}";
+                    case OperationSignType.Normal:
+                        return $"{_firstNumber} {OperationType.GetSign()} {_secondNumber}";
+                    case OperationSignType.AfterNumber:
+                        return $"{_firstNumber}{OperationType.GetSign()}";
+                    case OperationSignType.BeforeNumber:
+                        return $"{OperationType.GetSign()}{_firstNumber}";
                 }
             }
             set
@@ -109,13 +109,11 @@ namespace Calculator.ViewModel
         {            
             ClearBeforeExecution();
             FormatNumbers();
-            _operation = OperationFactory.Create(
-                new Number(_firstNumber),
-                new Number(_secondNumber),
-                OperationType);
+            _operation = OperationFactory.Create(OperationType);
             try
             {
-                Result = _operation.Execute().ToString();
+                Result = _operation.Execute().
+					ToString();
             }
             catch (ArithmeticException ex)
             {
@@ -132,7 +130,7 @@ namespace Calculator.ViewModel
             return !(OperationType != OperationType.Undefined);
         }       
 
-        private OperationSignClass CheckOperationClass()
+        private OperationSignType CheckOperationType()
         {
             switch (_operationType)
             {
@@ -140,14 +138,14 @@ namespace Calculator.ViewModel
                 case OperationType.Division:
                 case OperationType.Multiplication:
                 case OperationType.Substraction:
-                    return OperationSignClass.Normal;
+                    return OperationSignType.Normal;
                 case OperationType.SquareExponent:
-                    return OperationSignClass.AfterNumber;
+                    return OperationSignType.AfterNumber;
                 case OperationType.SquareRoot:
                 case OperationType.ChangingSign:
-                    return OperationSignClass.BeforeNumber;
+                    return OperationSignType.BeforeNumber;
                 default:
-                    return OperationSignClass.Undefined;
+                    return OperationSignType.Undefined;
             }
         }
 

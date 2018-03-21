@@ -1,16 +1,18 @@
 ﻿using Calculator.Model.Entity;
 using Calculator.Model.Operation.Base;
+using Calculator.Properties;
+using System;
 
 namespace Calculator.Model.Operation
 {
-    class AddOperation : BaseOperation
+    public class AddOperation : BaseOperation
     {
-        public AddOperation(Number firstNumber, Number secondNumber)
-            : base(firstNumber, secondNumber) { }
-
-        public override Number Execute()
+        public override Number Execute(Number firstNumber, Number secondNumber)
         {
-            return _firstNumber.Add(_secondNumber);
+            double result = firstNumber.Value + secondNumber.Value;
+            if (double.IsInfinity(result))
+                throw new ArithmeticException(Resources.Infinity);
+            return new Number(result);
         }
     }
 }

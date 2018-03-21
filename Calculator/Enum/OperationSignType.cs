@@ -1,6 +1,6 @@
 ﻿namespace Calculator.Enum
 {
-    public enum OperationSignClass
+    public enum OperationSignType
     {
         Undefined,
         Normal,

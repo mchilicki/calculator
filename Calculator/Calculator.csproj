@@ -87,10 +87,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Enum\OperationSignClass.cs" />
+    <Compile Include="Enum\OperationSignType.cs" />
     <Compile Include="Enum\OperationState.cs" />
     <Compile Include="Enum\OperationType.cs" />
-    <Compile Include="Enum\OperationTypeExtension.cs" />
+    <Compile Include="Helper\OperationTypeExtension.cs" />
     <Compile Include="Model\Entity\Number.cs" />
     <Compile Include="Model\Operation\AddOperation.cs" />
     <Compile Include="Model\Operation\Base\BaseOperation.cs" />

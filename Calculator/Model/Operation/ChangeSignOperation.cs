@@ -5,12 +5,9 @@ namespace Calculator.Model.Operation
 {
     class ChangeSignOperation : BaseOperation
     {
-        public ChangeSignOperation(Number firstNumber, Number secondNumber)
-            : base(firstNumber, secondNumber) { }
-
-        public override Number Execute()
+        public override Number Execute(Number firstNumber, Number secondNumber)
         {
-            return _firstNumber.ChangeSign();
+            return new Number(firstNumber.Value * (-1));
         }
     }
 }
