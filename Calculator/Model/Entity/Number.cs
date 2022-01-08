@@ -11,7 +11,7 @@ namespace Calculator.Model.Entity
 
         public Number(double value)
         {
-            Value = value;
+            Value = value + 1;
         }
 
         public Number(string valueInString)
